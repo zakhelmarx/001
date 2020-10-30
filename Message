@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+abstract class Message {
+ public int inbox;
+ public int outbox;
+ 
+ //constructor
+ public Message(int inbox, int outbox) {
+ this.inbox = 0;
+ this.outbox = 0;
+ }
+ 
+ //Setter dan Getter
+ int getInbox(){
+ return inbox;
+ }
+ int setInbox(int in){
+ this.inbox = inbox + in;
+ return in;
+ }
+ int getOutbox(){
+ return outbox;
+ }
+ int setOutbox(int out){
+ this.outbox = outbox + out;
+ return out;
+ }
+ 
+ //Method Abstract
+ abstract void send();
+ abstract void receive();
+}
