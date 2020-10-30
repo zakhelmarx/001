@@ -1,0 +1,37 @@
+ //Kelas Turunan Pertama (Inheritance)
+class shortMessage extends Message{
+ public int kapasitas;
+ public String pesan;
+ 
+ //Constructor
+ public shortMessage(int inbox, int outbox) {
+ super(inbox, outbox);
+ kapasitas = 156;
+ }
+ int getKapasitas(){
+ return kapasitas;
+ }
+ int setKapasitas(int cap){
+ this.kapasitas = cap;
+ return cap;
+ }
+ public void bacaPesan(){
+ System.out.println("Isi pesan : \n" + pesan + "\n");
+ }
+ public void tulisPesan(String msg , int panjang){
+ pesan = msg;
+ setKapasitas(kapasitas-panjang);
+ }
+ 
+ //Polymorphism (Lanjutan kelas abstrak)
+ @Override
+ public void send() {
+ System.out.println("\n1 SMS dikirim");
+ setOutbox(1);
+ }
+ @Override
+ public void receive() {
+ System.out.println("1 SMS diterima");
+ setInbox(1);
+ }
+}
