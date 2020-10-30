@@ -1,0 +1,19 @@
+  //Kelas Turunan Kedua (Inheritance)
+class multimediaMessage extends Message {
+ //Constructor
+ public multimediaMessage(int inbox, int outbox) {
+ super(inbox, outbox);
+ }
+ 
+ //Polymorphism (Lanjutan kelas abstrak)
+ @Override
+ public void send() {
+ System.out.println("1 MMS dikirim");
+ setOutbox(1);
+ }
+ @Override
+ public void receive() {
+ System.out.println("1 MMS diterima");
+ setInbox(1);
+ }
+}
