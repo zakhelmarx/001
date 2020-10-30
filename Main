@@ -1,0 +1,68 @@
+ //Kelas Main
+public class Test {
+ public static void main(String[] args) {
+ 
+ //Instansiasi
+ shortMessage message1 = new shortMessage(0 , 0);
+ multimediaMessage message2 = new multimediaMessage(0,0);
+ 
+ //Scanner
+ Scanner scan = new Scanner(System.in);
+ Scanner scan3 = new Scanner(System.in);
+ boolean mulai = true;
+ 
+ //Memulai Perulangan
+ while(mulai) {
+ System.out.println("Pilih jenis pesan : \n 1. Short Message \n 2. Multimedia Message \n
+ ");
+ int pilih = scan.nextInt();
+ if (pilih == 1) {
+ Scanner scan1 = new Scanner(System.in);
+ System.out.println("=============");
+ System.out.println("Tulis pesan : \n");
+ String isiPesan = scan1.nextLine();
+ if (isiPesan.length() < 156) {
+ message1.tulisPesan(isiPesan, isiPesan.length());
+ message1.send();
+ System.out.println("Sisa karakter : " + message1.getKapasitas() + " karakter");
+ System.out.println("Panjang teks : " + message1.setKapasitas(isiPesan.length()) +
+ " karakter\n");
+ message1.receive();
+ message1.bacaPesan();
+ System.out.println("Outbox : " + message1.getOutbox());
+ System.out.println("Inbox : " + message1.getInbox());
+ } else {
+ System.out.println("Karakter melebihi 156 karakter!");
+ }
+ } else if (pilih == 2) {
+ Scanner scan2 = new Scanner(System.in);
+ System.out.println("Tulis pesan : \n");
+ String isiPesan = scan2.nextLine();
+ if (isiPesan.length() < 156) {
+ message1.tulisPesan(isiPesan, isiPesan.length());
+ message2.send();
+ System.out.println("Sisa karakter : " + message1.getKapasitas() + " karakter");
+ System.out.println("Panjang teks : " + message1.setKapasitas(isiPesan.length()) +
+ " karakter\n");
+ message2.receive();
+ message1.bacaPesan();
+ System.out.println("Outbox : " + message2.getOutbox());
+ System.out.println("Inbox : " + message2.getInbox());
+ } else {
+ System.out.println("Karakter melebihi 156 karakter!");
+ }
+ } else {
+ System.out.println("Inputan salah!");
+ }
+ System.out.println("\n Tulis pesan lagi? (y/n)");
+ String tulisLagi = scan3.nextLine();
+ if (tulisLagi.equals("Y") || tulisLagi.equals("y")) {
+ System.out.println("=============");
+ } else if (tulisLagi.equals("N") || tulisLagi.equals("n")) {
+ mulai = false;
+ } else {
+ System.out.println("inputan salah!");
+ }
+ }
+ }
+}
